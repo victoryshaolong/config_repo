@@ -1,0 +1,42 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: service-group-user-service
+   #datasource config
+  datasource:
+      url: jdbc:mysql://localhost:3306/ssbdb?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: 123456
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.jdbc.Driver
+      druid:
+          max-active: 20
+          min-idle: 3
+          max-wait: 60000
+          initial-size: 1
+          remove-abandoned: true
+          remove-abandoned-timeout: 180
+          connect-properties: clientEncoding=UTF-8
+          test-while-idle: true
+  #redis config
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+#mapper:
+#  mappers:
+#     us.zoom.cloud.group.user.service.mapper
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 10
+  client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+web:
+  client:
+     clientId: webApp
+     clientSecret: webApp

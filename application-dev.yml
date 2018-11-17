@@ -2,7 +2,7 @@ server:
   port: 9001
 spring:
   application:
-    name: service-group-user-service
+    name: wd-admin-dev
    #datasource config
   datasource:
       url: jdbc:mysql://localhost:3306/ssbdb?useUnicode=true&characterEncoding=utf-8

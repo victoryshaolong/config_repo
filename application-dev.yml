@@ -40,3 +40,7 @@ web:
   client:
      clientId: webApp
      clientSecret: webApp
+
+## mybatis mapper loaction
+mybatis:
+  mapper-locations: classpath:mapper/mapper/*.xml
